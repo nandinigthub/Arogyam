@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="{% static 'css/home.css' %}">
+         <!-- Add the following script in your HTML -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+         <script >document.addEventListener("DOMContentLoaded", function () {
+          const mobileToggle = document.querySelector(".mobile-toggle");
+          const navul = document.querySelector(".navul");
+        
+          mobileToggle.addEventListener("click", function () {
+            navul.classList.toggle("show");
+          });
+        });</script>
+
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+<script>
+  // Initialize EmailJS with your user ID
+  emailjs.init("yKZDZuhyjlCk6nRdk");
+
+  // Function to send the email
+  function sendEmail() {
+    const form = document.querySelector(".form form"); // Corrected the form selector
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
+
+    // EmailJS API call to send the email
+    emailjs.send("service_txfult3","template_a9m55lk", {
+      from_name: name,
+      from_email: email,
+      message: message
+    })
+    .then(function(response) {
+      console.log("Email sent:", response);
+      form.reset();
+      // Show a SweetAlert popup
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Thank you for your message!',
+      });
+    }, function(error) {
+      console.log("Email error:", error);
+      // Show a SweetAlert error popup
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+      });
+    });
+
+    // Prevent the form from submitting through traditional means
+    return false;
+  }
+</script>
+
+    </head>
+   <body>
+    <nav >
+      <div class="nav-sec">
+          <div class="first">
+              <h2 style="cursor:pointer;">Arogyam</h2>
+              <div class="mobile-toggle">
+                  <div class="bar"></div>
+                  <div class="bar"></div>
+                  <div class="bar"></div>
+              </div>
+              <ul class="navul">
+                  <li><a href="{% url 'home' %}#home">Home</a></li>
+                  <li><a href="{% url 'home' %}#about">About </a></li>
+                  <li><a href="{% url 'home' %}#contact">Contact </a></li>
+                  <li><a href="{% url 'home' %}#home">Services</a></li>
+                  <li class="dropdown">
+                      <button class="dropbtn">Health Calculators <i class="fa fa-caret-down"></i></button>
+                      <div class="dropdown-content">
+                          <a href="{% url 'bmi' %}">BMI Calculator</a>
+                          <a href="{% url 'cal_calory' %}">Calorie Calculator</a>
+                          <a href="{% url 'medical' %}" >Medical Report</a>
+                          <a href="{% url 'widal' %}" >Widal Report(Typhoid)</a>
+                          <a href="{% url 'period_cal' %}">Period Calculator</a>
+                          <a href="{% url 'pregnancy_cal' %}">Pregnancy Calculator</a>
+                          <a href="{% url 'sugar' %}">Sugar_report</a>
+                          <a href="{% url 'anxiety' %}">Anxiety Screening</a>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+          <div class="end">
+              <a href="{% url 'login' %}">Login</a>
+              <a href="#">Register</a>
+          </div>
+      </div>
+      </nav>
+
+<!--this is home section -->
+<div class="home" id="home">
+
+   
+
+       
+    <div class="container">
+        <div class="text-container">
+            <h1>Predict diseases from entered symptoms.</h2>
+            <p>With our disease predictor website, you can easily input your symptoms <br>and receive potential
+                diagnoses. Our tool helps identify potential health <br>concerns, allowing for prompt and accurate
+                treatment. Give it a try today.</p>
+
+            <div class="btn2">
+                <button><a href=" {% url 'form' %} ">Predict your disease</a></button>
+                <a class="learn-link" href="#about" >Learn More</a>
+            </div>
+        </div> 
+
+        <div class="">
+            <img src="{% static 'backgroundimg.png' %}" alt="home-image"> 
+           </div>
+</div>
+
+</div>
+
+<hr style=" background: linear-gradient(to right, #328a76 10%, #317780 50%, #0f3b7b 100%);
+">
+
+<div  class="about-sec">
+
+    <div class="about" id="about">
+       <div class="aboutsec">
+        <h1>About Us</h1>
+        <p> Are you worried about your health? Do you have some symptoms that you are not sure about? If so, our disease predictor website can help. We offer a simple and easy-to-use tool that allows you to input your symptoms and receive potential diagnoses. Our tool is based on the latest medical research, and it can help you identify potential health concerns so that you can seek prompt and accurate treatment.<br> <b>How it works </b>
+
+            Our disease predictor website works by asking you a series of questions about your symptoms. Once you have answered the questions, our tool will use a sophisticated algorithm to generate a list of potential diagnoses. The list of potential diagnoses will be ranked in order of likelihood, so that you can see which diagnoses are most likely to be the cause of your symptoms.  </p>
+    
+        </div>
+    
+    </div>
+    
+    
+    </div>
+    
+    
+    
+    <div class="projects" id="projects">
+    
+    </div>
+    
+    
+    <hr style=" background: linear-gradient(to right, #328a76 10%, #317780 50%, #0f3b7b 100%);
+    ">
+    <!-- this is contact sections -->
+    
+    <div class="contact" id="contact">
+    
+      <div class="form">
+        <h1> Contact me </h1>
+        <form onsubmit="return sendEmail();">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" class="form-control" placeholder="Your name">
+            </div>
+            <div class="col-md-6">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" class="form-control" placeholder="Your email">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="message">Message</label>
+              <textarea name="message" id="message" class="form-control" rows="5" placeholder="Your message"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <input type="submit" value="Submit" class="btn btn-primary">
+            </div>
+          </div>
+        </form>
+    
+      </div>
+      
+    
+    </div>
+    
+    
+    <hr style=" background: linear-gradient(to right, #328a76 10%, #317780 50%, #0f3b7b 100%);
+    ">
+    <!--this is footer section-->
+    <div class="footer">
+          
+      <div class="footer_sec">
+          <div class="footer_about">
+              <h2> Arogyam</h2>
+              <p>User-friendly app predicting diseases through intuitive symptom input.</p>
+          </div>
+    
+          <div class="footer_social">
+            <div class="footer_h2"><h2 > social </h2></div>
+           <div class="footlinks">
+             <a href="https://github.com/Nikhil18Patil" target="_blank"><img src="{% static 'github.png' %}" alt="Github"></a>
+             <a href="https://www.linkedin.com/in/nikhil-patil-9a97971b5" target="_blank"><img src="{% static  'linkedin.png' %}" alt="Github"></a>
+            <a href="" target="_blank"><img src="{% static  'instagram.png' %}" alt="Github"></a>
+            <a href="" target="_blank"><img src="{% static 'telegram.png' %}" alt="Github"></a>
+           </div>
+    
+        </div>
+    
+      </div>
+    
+      
+      <p class="last_p">© Copyright 2023. Made by Arogyam</p>
+    </div>
+    
+
+
+
+</body>
+
+</html>

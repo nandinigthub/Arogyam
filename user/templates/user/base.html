@@ -1,0 +1,59 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+    <title>Arogyam</title>
+    <link rel="shortcut icon" type="image/png" href = "{% static './images/msg.png' %}" alt="">
+  </head>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type='text/css' href="{% static '/css/style.css' %}"> 
+    
+{% block css %}
+
+{% endblock css %}
+
+</head>
+<body>
+
+  
+<div class="topnav" id="myTopnav">
+  <a href="{% url 'home' %}" >Home</a>
+  {% comment %} <a href="{% url 'whtsp' %}">whatsapp</a>
+  <a href="{% url 'email' %}">Email</a>
+  <a href="{% url 'messenger' %}">Sms</a> {% endcomment %}
+  {% if user.is_authenticated %}
+  <a href="{% url 'profile' %}">profile </a>
+  <a href="{% url 'logout' %}">Log out </a>
+
+  {% else %}
+  <a href="{% url 'login' %}">Login</a>
+  <a href="{% url 'register' %}">Register</a>
+
+  {% endif %}
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+
+
+{% block body %}
+  
+{% endblock body %}
+   <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+
+        function myFunction() {
+          alert("Login to send mail");
+        }
+      </script>
+    </body>
+    </html>

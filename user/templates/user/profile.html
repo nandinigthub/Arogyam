@@ -1,0 +1,40 @@
+{% extends 'user/base.html' %}  {% load static %} 
+{% load crispy_forms_tags %}
+{% block css %}
+<link rel="stylesheet" type='text/css' href="{% static './user/profile.css' %}"> 
+{% endblock css %}
+ {% block body %}
+
+
+  <div class='signup-container'>
+    <div class='left-container'>
+      <h2>{{ user.username }}</h2>
+      <div class='puppy'>
+        <img
+        class="rounded-circle account-img"
+        style="width: 100%; height: 100%; padding: 2rem"
+        src="{{ user.profile.image.url }}" />
+      </div>
+    </div>
+    <div class='right-container'>
+      <header>
+
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+            {{ u_form | crispy }} {{ p_form | crispy }}
+
+
+
+      </header>
+      <footer>
+        <div class='set'>
+          <button class="btn btn-outline-success" type="submit">
+            update
+          </button>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  {% endblock body %} 
+</div>

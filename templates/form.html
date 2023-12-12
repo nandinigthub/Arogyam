@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  {%load static %}
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/form.css' %}" />
+    <!-- Add the following script in your HTML -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <!-- Add the following script in your HTML -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileToggle = document.querySelector(".mobile-toggle");
+        const navul = document.querySelector(".navul");
+
+        mobileToggle.addEventListener("click", function () {
+          navul.classList.toggle("show");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-sec">
+        <div class="first">
+          <h2 style="cursor: pointer">Arogyam</h2>
+          <div class="mobile-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+          <ul class="navul">
+            <li><a href="{% url 'home' %}#home">Home</a></li>
+            <li><a href="{% url 'home' %}#about">About </a></li>
+            <li><a href="{% url 'home' %}#contact">Contact </a></li>
+            <li><a href="{% url 'home' %}#home">Services</a></li>
+            <li class="dropdown">
+              <button class="dropbtn">
+                Health Calculators <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="{% url 'bmi' %}">BMI Calculator</a>
+                <a href="{% url 'cal_calory' %}">Calorie Calculator</a>
+                <a href="{% url 'medical' %}">Medical Report</a>
+                <a href="{% url 'widal' %}">Widal Report(Typhoid)</a>
+                <a href="{% url 'period_cal' %}">Period Calculator</a>
+                <a href="{% url 'pregnancy_cal' %}">Pregnancy Calculator</a>
+                <a href="{% url 'sugar' %}">Sugar_report</a>
+                <a href="{% url 'anxiety' %}">Anxiety Screening</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="end">
+          <a href="#">Login</a>
+          <a href="#">Register</a>
+        </div>
+      </div>
+    </nav>
+
+    <!--this is form section -->
+
+    <div class="form-sec">
+      <div class="form">
+        <form method="post" action="{% url 'result' %}">
+          {% csrf_token %}
+
+          <h2 class="head1">Symptoms</h2>
+          <p id="result">Select symptoms to predict the disease.</p>
+          <div class="box">
+            <label for="symptom1">Symptom 1:</label>
+            <select
+              id="symptom1"
+              name="symptom1"
+              class="custom-select"
+              required>
+              <option>Select Here</option>
+              {% for symptom in symptoms %}
+              <option>{{ symptom }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="box">
+            <label for="symptom2">Symptom 2:</label>
+            <select
+              id="symptom2"
+              name="symptom2"
+              class="custom-select"
+              required>
+              <option>Select Here</option>
+              {% for symptom in symptoms %}
+              <option>{{ symptom }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="box">
+            <label for="symptom3">Symptom 3:</label>
+            <select
+              id="symptom3"
+              name="symptom3"
+              class="custom-select"
+              required>
+              <option>Select Here</option>
+              {% for symptom in symptoms %}
+              <option>{{ symptom }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="box">
+            <label for="symptom4">Symptom 4:</label>
+            <select
+              id="symptom4"
+              name="symptom4"
+              class="custom-select"
+              required>
+              <option>Select Here</option>
+              {% for symptom in symptoms %}
+              <option>{{ symptom }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="box">
+            <label for="symptom5">Symptom 5:</label>
+            <select
+              id="symptom5"
+              name="symptom5"
+              class="custom-select"
+              required>
+              <option>Select Here</option>
+              {% for symptom in symptoms %}
+              <option>{{ symptom }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <!-- <p id="result">Select symptoms to predict the disease.</p> -->
+
+          <div class="btn">
+            <button type="submit" name="message_frm">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <hr
+      style="
+        background: linear-gradient(
+          to right,
+          #328a76 10%,
+          #317780 50%,
+          #0f3b7b 100%
+        );
+      " />
+    <!--this is footer section-->
+    <div class="footer">
+      <div class="footer_sec">
+        <div class="footer_about">
+          <h2>Arogyam</h2>
+          <p>
+            User-friendly app predicting diseases through intuitive symptom
+            input.
+          </p>
+        </div>
+
+        <div class="footer_social">
+          <div class="footer_h2"><h2>Social</h2></div>
+          <div class="footlinks">
+            <a href="https://github.com/Nikhil18Patil" target="_blank"
+              ><img src="{% static 'github.png' %}" alt="Github"
+            /></a>
+            <a
+              href="https://www.linkedin.com/in/nikhil-patil-9a97971b5"
+              target="_blank"
+              ><img src="{% static  'linkedin.png' %}" alt="Github"
+            /></a>
+            <a href="" target="_blank"
+              ><img src="{% static  'instagram.png' %}" alt="Github"
+            /></a>
+            <a href="" target="_blank"
+              ><img src="{% static 'telegram.png' %}" alt="Github"
+            /></a>
+          </div>
+        </div>
+      </div>
+
+      <p class="last_p">© Copyright 2023. Made by Arogyam</p>
+    </div>
+  </body>
+</html>
