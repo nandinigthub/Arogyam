@@ -1,10 +1,10 @@
-*{
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-	
+* {
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
 }
 
 html{
@@ -208,16 +208,16 @@ li{
 
 /*home section start here */
 
-.home{
+.home {
+  font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5px;
-  background: linear-gradient(to right, #9bceca 10%, #93f4ee 50%, #46f9ed 100%); 
+  background: linear-gradient(to right, #9bceca 10%, #93f4ee 50%, #46f9ed 100%);
   height: 660px;
   background-size: cover;
 }
-
 
 
 .container{
@@ -569,22 +569,25 @@ div.aboutsec:hover{
 /* contact end here */
 
 /*this is footer area */
-div.foothr{
-	box-shadow: 0 4px 8px 0 rgba(158, 145, 145, 0.2), 0 6px 20px 0 rgba(174, 151, 151, 0.19);
+div.foothr {
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 4px 8px 0 rgba(158, 145, 145, 0.2), 0 6px 20px 0 rgba(174, 151, 151, 0.19);
 }
 
 
-.footer{
-	width: 100%;
-	background: linear-gradient(to left, #9bceca 10%, #93f4ee 50%, #46f9ed 100%); 
-	padding-top:10px;
-    height: 300px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	padding: 8px;
+.footer {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  background: linear-gradient(to left, #9bceca 10%, #93f4ee 50%, #46f9ed 100%);
+  padding-top: 10px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
 }
+
 
 .footer_sec{
 	display: flex;
@@ -745,5 +748,3 @@ p{
 		max-height: 30%;
 	}
 }
-
-
