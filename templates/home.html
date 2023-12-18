@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <link rel="stylesheet" href="{% static 'css/home.css' %}">
          <!-- Add the following script in your HTML -->
+         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
          <script >document.addEventListener("DOMContentLoaded", function () {
@@ -92,7 +94,7 @@
               </ul>
           </div>
           <div class="end">
-              <a href="{% url 'login' %}">Login</a>
+              <a href="#">Login</a>
               <a href="#">Register</a>
           </div>
       </div>
@@ -190,32 +192,37 @@
     
     <hr style=" background: linear-gradient(to right, #328a76 10%, #317780 50%, #0f3b7b 100%);
     ">
-    <!--this is footer section-->
-    <div class="footer">
-          
-      <div class="footer_sec">
-          <div class="footer_about">
-              <h2> Arogyam</h2>
-              <p>User-friendly app predicting diseases through intuitive symptom input.</p>
-          </div>
     
-          <div class="footer_social">
-            <div class="footer_h2"><h2 > social </h2></div>
-           <div class="footlinks">
-             <a href="https://github.com/Nikhil18Patil" target="_blank"><img src="{% static 'github.png' %}" alt="Github"></a>
-             <a href="https://www.linkedin.com/in/nikhil-patil-9a97971b5" target="_blank"><img src="{% static  'linkedin.png' %}" alt="Github"></a>
-            <a href="" target="_blank"><img src="{% static  'instagram.png' %}" alt="Github"></a>
-            <a href="" target="_blank"><img src="{% static 'telegram.png' %}" alt="Github"></a>
-           </div>
-    
-        </div>
-    
+    <!-- this is footer section -->
+<div class="footer">
+  <div class="footer_sec">
+      <!-- Team Section -->
+      <div class="footer_about">
+          <h2> Team Members </h2>
+          <p>
+              <strong>Shubham Choudhary:</strong> Frontend <br>
+              <strong>Nikhil Patil:</strong> Backend <br>
+              <strong>Nandini Gattani:</strong> Backend
+          </p>
       </div>
-    
-      
-      <p class="last_p">© Copyright 2023. Made by Arogyam</p>
-    </div>
-    
+
+      <!-- Social Links Section -->
+      <div class="footer_social">
+          <div class="footer_h2">
+              <h2> Social Connect </h2>
+          </div>
+          <div class="footlinks">
+              <a href="https://github.com/Nikhil18Patil" target="_blank"><img src="{% static 'github.png' %}" alt="Github"></a>
+              <a href="https://www.linkedin.com/in/nikhil-patil-9a97971b5" target="_blank"><img src="{% static 'linkedin.png' %}" alt="LinkedIn"></a>
+              <a href="" target="_blank"><img src="{% static 'instagram.png' %}" alt="Instagram"></a>
+              <a href="" target="_blank"><img src="{% static 'telegram.png' %}" alt="Telegram"></a>
+          </div>
+      </div>
+  </div>
+
+  <!-- Copyright Section -->
+  <p class="last_p">Copyright © 2021 - 2022, Arogyam.in all rights reserved</p>
+</div>
 
 
 
